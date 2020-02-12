@@ -14,38 +14,25 @@ import java.util.ArrayList;
  */
 public class ItemArray implements Serializable{
 public ArrayList<String> finalArray;
-public int code;
-public String codex;
-
 public ItemArray()
 {
     finalArray = new ArrayList<String>();
-    code=0;
-    codex ="";
+   
 }
 
     /**
      * @return the finalArray
      */
-    public ArrayList<String> getFinalArray() {
-        return finalArray;
-    }
-    public String getFinalArrayElement(int index) {
-        return finalArray.get(index);
-    }
+   
 
     /**
      * @param finalArray the finalArray to set
      */
-    public void setFinalArray(ArrayList<String> finalArray) {
-        this.finalArray = finalArray;
-    }
-
+   
     public void addFinalArray(String item)
     {
         finalArray.add(item);
-        code++;
-        codex = codex+code;
+        
     }
     
     public void removeFinalArray(String item)
@@ -66,10 +53,7 @@ public ItemArray()
         }
 
     }
-    public int getCode()
-    {
-        return code;
-    }
+
     public int getSize()
     {
         return finalArray.size();

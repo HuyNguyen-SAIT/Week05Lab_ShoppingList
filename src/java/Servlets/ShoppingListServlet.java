@@ -130,13 +130,13 @@ public class ShoppingListServlet extends HttpServlet {
             if(!itemToBeAdded.equals("") && itemToBeAdded!=null)
             {
             HttpSession session = request.getSession();
-            ItemArray item = (ItemArray) session.getAttribute("itemList");
+            ArrayList<String> item = (ArrayList) session.getAttribute("itemList");
             if(item == null)
             {
-               item = new ItemArray();
+               item = new ArrayList<>();
             }
             
-            item.addFinalArray(itemToBeAdded);
+            item.add(itemToBeAdded);
             session.setAttribute("LIST", "Has list");
             session.setAttribute("itemList", item);
             
@@ -156,8 +156,21 @@ public class ShoppingListServlet extends HttpServlet {
                     if(name!=null)
                 {
                     HttpSession session = request.getSession();
-                    ItemArray list =(ItemArray) session.getAttribute("itemList");
-                    list.removeFinalArray(name);
+                    ArrayList<String> list =(ArrayList) session.getAttribute("itemList");
+                    int counter=0;
+                   for(String oldItem: list)
+                   {
+                     if(oldItem.equals(name))
+            {
+                     list.remove(counter);
+                
+                break;
+            }
+            else
+            {
+               counter++; 
+            }
+        }
                     session.setAttribute("itemList", list);
                     sc.getRequestDispatcher(url).forward(request, response);
                 }

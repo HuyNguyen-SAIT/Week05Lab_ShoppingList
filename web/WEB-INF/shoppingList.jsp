@@ -32,7 +32,7 @@
         </form>
     <form action="" method="post"> 
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <c:forEach var="item" items="${itemList.finalArray}" >
+    <c:forEach var="item" items="${itemList}" >
        
         <table>
             
@@ -54,7 +54,7 @@
 </c:forEach>
     
     
-<c:if test="${itemList.getSize()>0}">
+<c:if test="${itemList.size()>0}">
     
     <input type="hidden" name="action" value="delete">
           
